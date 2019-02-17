@@ -6,6 +6,11 @@
     padding: 0px;
 }
 
+.main{
+    height: 657px;
+    background-color: #F6F7FB;
+}
+
 .sidebar-main{
     background-color: #3C3E4D;
     padding: 0px;
@@ -37,10 +42,23 @@
 
 .sidebar-main li:hover{
     background-color: #282A37;
-    border-left: 6px solid #92A4D4;
-    border-bottom: 1px solid #92A4D4;
+    border-left: 6px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
 }
 
-.background-color{
-    background-color: #F6F7FB;
+table{
+    background-color: #ffffff;
+}
+
+.pagination-nav{
+    text-align: center;
+}
+
+.pagination{
+    margin: 0 auto;
+}
+
+td .btn{
+    margin-right: 10px;
 }
