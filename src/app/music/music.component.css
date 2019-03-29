@@ -1,0 +1,51 @@
+.main-music-info{
+    height: 200px;
+    padding: 0px 225px;
+    margin: 10px 0px;
+}
+
+.top-coverart{
+    width: 20%;
+    background-color: blue;
+    overflow: hidden;
+    display: inline-block;
+    height: 100%;
+    background-image: url("https://is4-ssl.mzstatic.com/image/thumb/Music4/v4/69/48/2e/69482ef7-3554-174e-73da-3fab18d55889/source/300x300bb.jpg");
+    background-repeat: none;
+    background-color: #cccccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 7px;
+}
+
+.top-song-info{
+    width: 80%;
+    background-color: green;
+    overflow: hidden;
+    display: inline-block;
+    height: 100%;
+}
+
+.main-music-list{
+    padding: 0px 225px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    /* text-align: center; */
+}
+
+audio{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: #f1f3f4;
+}   
+
+tbody,thead{
+    color: #818888;
+}
+tbody tr:hover{
+    background-color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+}
