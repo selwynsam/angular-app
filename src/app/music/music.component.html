@@ -16,7 +16,7 @@
       <tbody>
         <tr *ngFor = "let song of search_list.results; let i = index">
           <td>{{i+1}}</td>
-          <td>{{song.trackName}}</td>
+          <td><img class="listing-coverart" src="{{song.artworkUrl30}}"/>{{song.trackName}}</td>
           <td>{{song.artistName}}</td>
           <td>{{song.trackTimeMillis | duration}}</td>
         </tr>
