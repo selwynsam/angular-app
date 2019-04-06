@@ -11,7 +11,6 @@
     display: inline-block;
     height: 100%;
     /* background-image: url("https://is4-ssl.mzstatic.com/image/thumb/Music4/v4/69/48/2e/69482ef7-3554-174e-73da-3fab18d55889/source/300x300bb.jpg"); */
-    background-repeat: none;
     background-color: #cccccc;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,9 +20,20 @@
 
 .top-song-info{
     width: 80%;
-    background-color: green;
     overflow: hidden;
     display: inline-block;
     height: 100%;
+}
+
+.top-song-info ul{
+    list-style-type: none;
+    margin: 0px;
+    padding-left: 10px;
+}
+
+.top-song-info ul li{
+    font-size: 13px;
+    color: #818888;
+    font-family: cursive;
 }
 

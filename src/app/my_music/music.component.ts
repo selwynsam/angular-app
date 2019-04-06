@@ -1,4 +1,5 @@
 import {Component,OnInit,ViewChild} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {AudioPlayerComponent} from '../shared/components/audio_player/audio_player.component';
 import {SearchService} from '../shared/services/music.service';
 
@@ -10,27 +11,36 @@ import {SearchService} from '../shared/services/music.service';
 
 })
 export class MusicComponent implements OnInit{
-   apiRoot:string = 'https://itunes.apple.com/search';
    @ViewChild(AudioPlayerComponent) player: AudioPlayerComponent;
    @ViewChild('albumArt') albumArt;
+
+   public searchList:any;
+   public artistName:string;
+   public album:string;
+   public nowPlaying:string;
+   public genre:string;
    
-   public search_list;
-   
-   constructor(private search:SearchService){
+   constructor(private search:SearchService,
+               private route: ActivatedRoute){
       console.log('constructor function');
    }
 
    ngOnInit(){
-      this.search.search().subscribe(res =>{ 
+      const searchTerm = this.route.snapshot.paramMap.get('id');
+      this.search.search(searchTerm).subscribe(res =>{ 
             console.log(res);
-            this.search_list = res ;
-            let albumPic = this.search_list.results[0].artworkUrl30;
+            this.searchList = res ;
+            let albumPic = this.searchList.results[0].artworkUrl30;
+            this.artistName = this.searchList.results[0].artistName;
             albumPic = albumPic.replace(/\/[a-zA-z0-9\s\-\.]*$/i, "/300x300bb.jpg");
             this.albumArt.nativeElement.style.backgroundImage = "url("+albumPic+")";
          });
    }
 
    musicListActions(data){
+      this.album = data.collectionName;
+      this.genre = data.primaryGenreName;
+      this.nowPlaying = data.trackName;
       this.player.play(data.previewUrl);
    }
 }

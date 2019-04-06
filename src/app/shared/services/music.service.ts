@@ -8,11 +8,11 @@ export class SearchService{
 
     constructor(private http: HttpClient){}
     
-    search(){
+    search(term:string){
         let url = `${this.apiRoot}`;
         let headers = new HttpHeaders();
         let params = new HttpParams();
-        params = params.append('term', 'sia');
+        params = params.append('term', term);
         params = params.append('media', 'music');
         params = params.append('limit', '50');
         return this.http.get(url,{headers,params});

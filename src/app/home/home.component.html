@@ -1,0 +1,14 @@
+<div class="search-section-main">
+    <div class="search-section-title">Find Music</div>
+    <div class="form-inline col-sm-8 offset-sm-2">
+        <input type="text" class="form-control col-sm-10" #searchVal placeholder="Search your favourite artist, album or music" (keyup.enter) = "searchMusic(searchVal.value)"  />
+        <button class="col-sm-2 btn btn-primary" (click) = "searchMusic(searchVal.value)" >Search</button>
+    </div>
+</div>
+<div class="recomdn-main">
+    <div class="recomdn-card" *ngFor="let recom of [0,1,2,3,4,6,7,8,9,10]" >
+        <div class="card-albumart"></div>
+        <div class="card-info">Artist</div>
+        <a class="card-link" routerLink="/artist"></a>
+    </div>
+</div>

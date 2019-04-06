@@ -1,0 +1,54 @@
+.search-section-main{
+    background-color: black;
+    color:#fff;
+    height: 230px;
+}
+
+.search-section-title{
+    text-align: center;
+    padding: 41px 0px;
+    font-size: 46px;
+}
+
+.recomdn-card{
+    display: inline-block;
+    height: 242px;
+    width: 200px;
+    margin: 0px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    position: relative;
+}
+
+.recomdn-main{
+    padding: 30px 99px;
+}
+
+.card-albumart{
+    background-image: url('https://is4-ssl.mzstatic.com/image/thumb/Music4/v4/69/48/2e/69482ef7-3554-174e-73da-3fab18d55889/source/200x200bb.jpg');
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 7px;
+}
+
+.card-info{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    font-family: -webkit-body;
+    letter-spacing: 1px;
+}
+
+.card-link{
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* text-indent: -9999px; */
+    z-index: 1000;
+}
