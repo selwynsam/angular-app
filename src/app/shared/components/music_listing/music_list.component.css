@@ -1,0 +1,21 @@
+
+tbody,thead{
+    color: #818888;
+}
+tbody tr:hover{
+    background-color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.listing-coverart{
+    border-radius: 7px;
+    margin-right: 15px;
+}
+
+.main-music-list{
+    padding: 0px 225px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    /* text-align: center; */
+}

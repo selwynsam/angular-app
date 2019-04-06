@@ -1,0 +1,20 @@
+<div class="container-fluid main-music-list">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Artistt</th>
+            <th>Duration</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let song of music_list_data.results; let i = index" (click) = "listElementClick(song)">
+            <td>{{i+1}}</td>
+            <td><img class="listing-coverart" src="{{song.artworkUrl30}}"/>{{song.trackName}}</td>
+            <td>{{song.artistName}}</td>
+            <td>{{song.trackTimeMillis | duration}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

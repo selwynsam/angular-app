@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path:'music',loadChildren: './music/music.module#MusicModule'},
+  {path:'music',loadChildren: './my_music/music.module#MusicModule'},
 ];
 
 @NgModule({

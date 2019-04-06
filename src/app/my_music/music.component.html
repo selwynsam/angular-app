@@ -1,0 +1,15 @@
+<div class="main-music-info">
+    <div class = "top-coverart" #albumArt></div>
+    <div class = "top-song-info">Info</div>
+</div>
+<div *ngIf = "search_list; else loader">
+    <music_listing [music_list] = "search_list" (notify) = "musicListActions($event)"></music_listing>
+</div>
+
+<ng-template #loader>
+    <div style="text-align:center">Loading......</div>
+</ng-template>
+
+<audio_player></audio_player>
+
+
