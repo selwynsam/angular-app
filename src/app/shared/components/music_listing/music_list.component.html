@@ -3,18 +3,23 @@
         <thead>
         <tr>
             <th>#</th>
+            <th></th>
             <th>Title</th>
             <th>Artistt</th>
             <th>Duration</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor = "let song of music_list_data.results; let i = index" (click) = "listElementClick(song)">
-            <td>{{i+1}}</td>
-            <td><img class="listing-coverart" src="{{song.artworkUrl30}}"/>{{song.trackName}}</td>
-            <td>{{song.artistName}}</td>
-            <td>{{song.trackTimeMillis | duration}}</td>
-        </tr>
+            <tr *ngFor = "let song of music_list_data.results; let i = index" [ngClass] = "{'active': selectedItem == song.trackId}"  (click) = "listElementClick(song)">
+                <td>{{i+1}}</td>
+                <td>
+                    <i class="fa fa-heart favourite-icon" aria-hidden="true" data-like = "0" (click) = "likeUnlike($event,song)" [hidden] = "!meta.showLike"></i>
+                    <i class="fa fa-times remove-icon" aria-hidden="true" data-like = "0" (click) = "removeSong(song)" [hidden] = "!meta.showDelete"></i>
+                </td>
+                <td><img class="listing-coverart" src="{{song.artworkUrl30}}"/><span class="track-name">{{song.trackName}}</span></td>
+                <td><span class="artist-name">{{song.artistName}}</span></td>
+                <td>{{song.trackTimeMillis | duration}}</td>
+            </tr>
         </tbody>
     </table>
 </div>

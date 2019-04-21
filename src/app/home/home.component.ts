@@ -1,18 +1,30 @@
-import {Component} from '@angular/core';
+import {Component,OnInit} from '@angular/core';
+import {SearchService} from '../shared/services/music.service';
 
 @Component({
     selector:'home',
     templateUrl:'home.component.html',
-    styleUrls: ['home.component.css']
+    styleUrls: ['home.component.css'],
+    providers: [SearchService]
 })
 
-export class HomeComponent{
+export class HomeComponent implements OnInit {
+
+    public latestMusicList:any;
+    public searchValue:string;
    
-    constructor(){
+    constructor(private latestMusic:SearchService){
         console.log('home constructor');
     }
 
-    searchMusic(searchVal:string){
-        window.location.href = "./artist/"+searchVal;
+    ngOnInit(){
+        this.latestMusic.getLatestMusic().subscribe(res =>{
+            console.log(res);
+            this.latestMusicList = res;
+        });
+    }
+
+    searchMusic(){
+        window.location.href = "./artist/"+this.searchValue;
     }
 }

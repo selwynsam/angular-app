@@ -2,7 +2,7 @@
     <div class = "top-coverart" #albumArt></div>
     <div class = "top-song-info">
         <ul>
-            <h3><span class="artist-name">{{musicInfo.artistName}} Songs</span></h3>
+            <h3>{{musicInfo.artistName}} Songs</h3>
             <li><b>Album</b>: {{musicInfo.album}}</li>
             <li><b>Genre</b>: {{musicInfo.genre}}</li>
             <li><b>Now Playing</b>: {{musicInfo.nowPlaying}}</li>
@@ -11,13 +11,11 @@
     </div>
 </div>
 <div *ngIf = "searchList; else loader">
-    <music_listing [music_list] = "searchList" [meta] = "meta"  [selectedItem] = "selectedItem" (notify) = "musicListActions($event)"></music_listing>
+    <music_listing [music_list] = "searchList" [meta] = "meta" [selectedItem] = "selectedItem" (notify) = "musicListActions($event)"></music_listing>
 </div>
 
 <ng-template #loader>
-    <div style="text-align:center">{{pageStatus ? 'Loading........' : 'No Datat Found'}}</div>
+    <div style="text-align:center">{{pageStatus ? 'Loading........' : 'No Favourites Added'}}</div>
 </ng-template>
 
 <audio_player></audio_player>
-
-

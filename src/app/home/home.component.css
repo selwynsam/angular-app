@@ -20,12 +20,7 @@
     position: relative;
 }
 
-.recomdn-main{
-    padding: 30px 99px;
-}
-
 .card-albumart{
-    background-image: url('https://is4-ssl.mzstatic.com/image/thumb/Music4/v4/69/48/2e/69482ef7-3554-174e-73da-3fab18d55889/source/200x200bb.jpg');
     background-repeat: no-repeat;
     height: 200px;
     width: 200px;
@@ -51,4 +46,20 @@
     right: 0;
     /* text-indent: -9999px; */
     z-index: 1000;
+}
+
+@media only screen and (min-width: 992px) {
+    .recomdn-main{
+        width: 76%;
+        margin: 0 auto;
+        margin-top: 70px;
+    }
+} 
+
+@media only screen and (min-width: 1550px) {
+    .recomdn-main{
+        width: 61%;
+        margin: 0 auto;
+        margin-top: 70px;
+    }
 }

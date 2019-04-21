@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {MusicComponent} from './music.component';
+import {FavouritesComponent} from '../favourites/favourites.component';
 
 const routes: Routes = [
-    {path:'',component: MusicComponent},
+    {path:'favourites',component: FavouritesComponent},
+    {path:'',component: MusicComponent}
   ];
   
   @NgModule({
@@ -11,6 +13,6 @@ const routes: Routes = [
     exports: [RouterModule]
   })
   export class MusicRoutingModule { 
-      static components = [MusicComponent];
+      static components = [MusicComponent,FavouritesComponent];
   }
   

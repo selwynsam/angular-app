@@ -5,35 +5,46 @@
 }
 
 .top-coverart{
-    width: 20%;
-    background-color: blue;
-    overflow: hidden;
+    width: 200px;
     display: inline-block;
     height: 100%;
-    /* background-image: url("https://is4-ssl.mzstatic.com/image/thumb/Music4/v4/69/48/2e/69482ef7-3554-174e-73da-3fab18d55889/source/300x300bb.jpg"); */
-    background-color: #cccccc;
-    background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 7px;
+    background-size: contain;
 }
 
 .top-song-info{
-    width: 80%;
-    overflow: hidden;
     display: inline-block;
+    vertical-align: top;
+    padding-left: 15px;
+    position: relative;
     height: 100%;
 }
 
 .top-song-info ul{
     list-style-type: none;
     margin: 0px;
-    padding-left: 10px;
+    padding: 0px;
 }
 
 .top-song-info ul li{
     font-size: 13px;
     color: #818888;
     font-family: cursive;
+}
+
+.Play-all-btn{
+    position: absolute;
+    bottom: 12px;
+    width:140px;
+    border-radius: 100px;
+}
+
+.artist-name{
+    white-space: nowrap; 
+    display: inline-block;
+    width: 600px; 
+    overflow: hidden;
+    text-overflow:ellipsis;
+    vertical-align: middle;
 }
 

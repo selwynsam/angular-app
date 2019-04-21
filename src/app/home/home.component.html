@@ -1,14 +1,14 @@
 <div class="search-section-main">
     <div class="search-section-title">Find Music</div>
     <div class="form-inline col-sm-8 offset-sm-2">
-        <input type="text" class="form-control col-sm-10" #searchVal placeholder="Search your favourite artist, album or music" (keyup.enter) = "searchMusic(searchVal.value)"  />
-        <button class="col-sm-2 btn btn-primary" (click) = "searchMusic(searchVal.value)" >Search</button>
+        <input type="text" class="form-control col-sm-10" [(ngModel)] = "searchValue" placeholder="Search your favourite artist, album or music" (keyup.enter) = "searchMusic()"  />
+        <button class="col-sm-2 btn btn-primary" [disabled] = "!searchValue" (click) = "searchMusic()" >Search</button>
     </div>
 </div>
 <div class="recomdn-main">
-    <div class="recomdn-card" *ngFor="let recom of [0,1,2,3,4,6,7,8,9,10]" >
-        <div class="card-albumart"></div>
-        <div class="card-info">Artist</div>
-        <a class="card-link" routerLink="/artist"></a>
+    <div class="recomdn-card" *ngFor="let song of latestMusicList" >
+        <img class="card-albumart" src="{{song.artworkUrl200}}"/>
+        <div class="card-info">{{song.artistName}}</div>
+        <a class="card-link" routerLink="/artist/{{song.artistName}}"></a>
     </div>
 </div>
