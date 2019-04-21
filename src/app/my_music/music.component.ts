@@ -28,7 +28,7 @@ export class MusicComponent implements OnInit{
       'showDelete':false
    }
 
-   public musicInfo = [];
+   public musicInfo:any = [];
    private music_data = {
       'results' : [],
       'resultCount' : 0

@@ -27,7 +27,7 @@ export class FavouritesComponent{
         'showDelete':true
      }
 
-    private musicInfo = [];
+    public musicInfo:any = [];
 
     constructor(private search:SearchService){
         console.log('favourites constructor');

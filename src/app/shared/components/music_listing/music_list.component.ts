@@ -10,7 +10,7 @@ import {SearchService} from '../../services/music.service';
 
 export class MusicListingComponent{
     @Output() notify:EventEmitter<string> = new EventEmitter<string>();
-    @Input('music_list') music_list_data : [];
+    @Input('music_list') music_list_data:any = [];
     @Input() selectedItem: number;
     @Input() meta;
     private iconClicked: boolean;
