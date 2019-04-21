@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class SearchService{
-    public apiRoot:string = 'https://itunes.apple.com/search';
+    public apiRoot:string = 'http://itunes.apple.com/search';
 
     constructor(private http: HttpClient){}
     
