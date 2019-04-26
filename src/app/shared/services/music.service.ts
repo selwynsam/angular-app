@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class SearchService{
+    public base_url:string = "https://selwynsam.github.io/angular-app/"; 
     public apiRoot:string = 'https://itunes.apple.com/search';
 
     constructor(private http: HttpClient){}
@@ -19,7 +20,7 @@ export class SearchService{
     }
 
     getLatestMusic(){
-        return this.http.get('../../../assets/latestMusic.json'); 
+        return this.http.get(this.base_url+'assets/latestMusic.json'); 
     }
 
     getFavouriteMusic(){
