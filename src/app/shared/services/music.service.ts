@@ -1,11 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 
 @Injectable()
 export class SearchService{
     public base_url:string = "https://selwynsam.github.io/angular-app/"; 
     public apiRoot:string = 'https://itunes.apple.com/search';
+    public default_storage_val = {
+        'results': [],
+        'resultCount': 0
+    }
 
     constructor(private http: HttpClient){}
     
@@ -31,7 +35,9 @@ export class SearchService{
     musicListActions(data,action){
 
         let music_data = JSON.parse(localStorage.getItem('music_data'));
-        
+
+        music_data = (music_data != null) ? music_data : this.default_storage_val;
+              
         switch(action){
             case 'like': {
                 music_data['results'].push(data);

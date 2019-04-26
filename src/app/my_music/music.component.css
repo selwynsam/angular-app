@@ -48,3 +48,11 @@
     vertical-align: middle;
 }
 
+
+.top-song-info ul li{
+    white-space: nowrap;
+    width: 500px; 
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+

@@ -31,7 +31,7 @@ tbody tr:hover{
 .track-name{
     white-space: nowrap; 
     display: inline-block;
-    width: 400px; 
+    width: 350px; 
     overflow: hidden;
     text-overflow:ellipsis;
     vertical-align: middle;
