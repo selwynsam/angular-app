@@ -1,0 +1,42 @@
+[
+    {
+        "artistName":"Shakira",
+        "artworkUrl200": "https://is3-ssl.mzstatic.com/image/thumb/Music/v4/14/d0/1d/14d01dd1-70a8-79d5-931d-ba30f6bac759/source/200x200bb.jpg"
+    },
+    {
+        "artistName":"Alan Walker",
+        "artworkUrl200": "https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/b8/ab/93/b8ab934a-810e-933a-135a-5901bfd94a73/source/200x200bb.jpg"
+    },
+    {
+        "artistName":"James Blunt",
+        "artworkUrl200": "https://is4-ssl.mzstatic.com/image/thumb/Music4/v4/de/45/60/de4560eb-3b04-39dd-a3a7-b60f26a9ca47/source/200x200bb.jpg"
+    },
+    {
+        "artistName":"Coldplay",
+        "artworkUrl200": "https://is4-ssl.mzstatic.com/image/thumb/Music62/v4/b8/5d/ff/b85dff39-32cd-34eb-7b0e-f087707bf254/source/200x200bb.jpg"
+    },
+    {
+        "artistName":"Passengers",
+        "artworkUrl200": "https://is4-ssl.mzstatic.com/image/thumb/Music/v4/08/4b/ab/084bab15-ce21-7c1b-1c01-8be4ecd1be84/source/200x200bb.jpg"
+    },
+    {
+        "artistName":"Sia",
+        "artworkUrl200": "https://is4-ssl.mzstatic.com/image/thumb/Music71/v4/6f/b3/c4/6fb3c490-49f9-b194-8f6b-e0ed5e6c2e28/source/200x200bb.jpg"
+    },
+    {
+        "artistName":"Chainsmokers",
+        "artworkUrl200": "https://is2-ssl.mzstatic.com/image/thumb/Music111/v4/02/81/16/02811613-b75f-7223-cd91-63448af2ffde/source/200x200bb.jpg"
+    },
+    {
+        "artistName":"Eminem",
+        "artworkUrl200": "https://is4-ssl.mzstatic.com/image/thumb/Music/v4/d1/1f/3c/d11f3c95-0d30-fbba-0b89-26628fa655c6/source/200x200bb.jpg"
+    },
+    {
+        "artistName":"Skrillex",
+        "artworkUrl200": "https://is3-ssl.mzstatic.com/image/thumb/Music/v4/24/44/80/244480d4-3b14-111e-759c-290e583045cd/source/200x200bb.jpg"
+    },
+    {
+        "artistName":"Owl City",
+        "artworkUrl200": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/a7/5c/2b/a75c2b06-ef3f-6bd9-7747-3a6d9318ccfc/source/200x200bb.jpg"
+    }
+]
