@@ -34,34 +34,6 @@ export class FavouritesComponent{
     }
 
     ngOnInit(){
-        this.search.getFavouriteMusic().subscribe(res =>{ 
-            console.log(res);
-            if(res['resultCount'] > 0){
-                this.searchList = res ;
-                this.musicListActions(this.searchList.results[0]);
-            }else{
-                this.pageStatus = false;
-            }
-        });
-    }
-
-    musicListActions(data:any){
-
-        this.selectedItem = data.trackId;
-        this.musicInfo['artistName'] = data.artistName;
-
-        this.musicInfo['albumPic'] = data.artworkUrl30;
-        this.musicInfo['albumPic'] =  this.musicInfo['albumPic'].replace(/\/[a-zA-z0-9\s\-\.]*$/i, "/300x300bb.jpg");
-        this.albumArt.nativeElement.style.backgroundImage = "url("+this.musicInfo['albumPic']+")";
-
-        this.musicInfo['album'] = data.collectionName;
-        this.musicInfo['genre'] = data.primaryGenreName;
-        this.musicInfo['nowPlaying'] = data.trackName;
-        this.player.play(data.previewUrl);
-    }
-
-    playNext(){
-        this.trackId = (this.trackId < this.searchList.resultCount-1)? this.trackId+1 : 0;
-        this.musicListActions(this.searchList.results[this.trackId]);
+        
     }
 }

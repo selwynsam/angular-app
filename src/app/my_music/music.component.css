@@ -1,58 +1,9 @@
-.main-music-info{
-    height: 200px;
-    padding: 0px 225px;
-    margin: 10px 0px;
-}
-
-.top-coverart{
-    width: 200px;
-    display: inline-block;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.top-song-info{
-    display: inline-block;
-    vertical-align: top;
-    padding-left: 15px;
-    position: relative;
-    height: 100%;
-}
-
-.top-song-info ul{
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
-}
-
-.top-song-info ul li{
-    font-size: 13px;
-    color: #818888;
-    font-family: cursive;
-}
-
-.Play-all-btn{
-    position: absolute;
-    bottom: 12px;
-    width:140px;
-    border-radius: 100px;
-}
-
-.artist-name{
-    white-space: nowrap; 
-    display: inline-block;
-    width: 600px; 
-    overflow: hidden;
-    text-overflow:ellipsis;
-    vertical-align: middle;
-}
-
-
-.top-song-info ul li{
-    white-space: nowrap;
-    width: 500px; 
-    overflow: hidden;
-    text-overflow:ellipsis;
+@media (min-width: 320px) and (max-width: 480px) {
+    h3 {
+        font-size: 0.8rem;
+        margin-bottom: .5rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
 }
 

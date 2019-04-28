@@ -1,5 +1,6 @@
-import  {Component,Input, Output, EventEmitter} from '@angular/core';
+import  {Component,Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {SearchService} from '../../services/music.service';
+import {MusicListService} from '../../services/music_list.service';
 
 @Component({
     selector:'music_listing',
@@ -8,20 +9,30 @@ import {SearchService} from '../../services/music.service';
     providers:[SearchService]
 })
 
-export class MusicListingComponent{
-    @Output() notify:EventEmitter<string> = new EventEmitter<string>();
+export class MusicListingComponent implements OnInit{
     @Input('music_list') music_list_data:any = [];
     @Input() selectedItem: number;
     @Input() meta;
     private iconClicked: boolean;
     
-    constructor(private search:SearchService){
-        console.log('music listing component constructor');
+    constructor(private search:SearchService,
+                private musicListService:MusicListService){
+    }
+
+    ngOnInit(){
+        // this.musicListService.getSelectedTrack().subscribe(
+        //     (res) =>{
+        //         if(res.is_defined){
+        //             this.listElementClick(res.data);
+        //         }
+        // })
     }
 
     listElementClick(data){
         if(!this.iconClicked){
-            this.notify.emit(data);
+            //notify
+            console.log('update observable');
+            this.musicListService.selectTrack(data);
         }
         this.iconClicked = false;
     }

@@ -72,3 +72,25 @@ tr:hover .favourite-icon[data-like="1"]{
     font-size: 14px;
     vertical-align: middle;
 }
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .main-music-list{
+        padding: 0px;
+        margin-bottom: 10px;
+        font-size: 15px;
+        margin-top: 17px;
+        margin-left: 10px;
+    }
+
+    .track-name{
+        white-space: nowrap;
+        /* display: inline-block; */
+        width: 207px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+    }
+
+}

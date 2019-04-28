@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class SearchService{
     public base_url:string = "https://selwynsam.github.io/angular-app/"; 
-    public apiRoot:string = 'https://itunes.apple.com/search';
+    public apiRoot:string = 'http://itunes.apple.com/search';
     public default_storage_val = {
         'results': [],
         'resultCount': 0

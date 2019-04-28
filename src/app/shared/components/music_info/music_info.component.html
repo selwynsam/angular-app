@@ -1,0 +1,12 @@
+<div class="main-music-info">
+    <img class = "top-coverart" src="{{musicInfo.albumPic}}"/>
+    <div class = "top-song-info">
+        <ul>
+            <h3><span class="artist-name">{{musicInfo.artistName}} Songs</span></h3>
+            <li><b>Album</b>: {{musicInfo.collectionName}}</li>
+            <li><b>Genre</b>: {{musicInfo.primaryGenreName}}</li>
+            <li><b>Now Playing</b>: {{musicInfo.trackName}}</li>
+        </ul>
+        <button class="btn btn-outline-dark Play-all-btn" (click) = "playNext()" [disabled] = "!pageStatus">Play Next</button>
+    </div>
+</div>

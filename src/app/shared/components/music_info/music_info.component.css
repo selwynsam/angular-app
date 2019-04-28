@@ -1,0 +1,107 @@
+.main-music-info{
+    height: 200px;
+    padding: 0px 225px;
+    margin: 10px 0px;
+}
+
+.top-coverart{
+    width: 200px;
+    display: inline-block;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.top-song-info{
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 15px;
+    position: relative;
+    height: 100%;
+}
+
+.top-song-info ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.top-song-info ul li{
+    font-size: 13px;
+    color: #818888;
+    font-family: cursive;
+}
+
+.top-song-info ul li{
+    white-space: nowrap;
+    width: 500px; 
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.artist-name{
+    white-space: nowrap; 
+    display: inline-block;
+    width: 600px; 
+    overflow: hidden;
+    text-overflow:ellipsis;
+    vertical-align: middle;
+}
+
+.Play-all-btn{
+    position: absolute;
+    bottom: 12px;
+    width:140px;
+    border-radius: 100px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .main-music-info{
+        height: 106px;
+        margin-top: 4px;
+        margin-left: 9px;
+        padding: 0px;
+    }
+
+    .top-coverart{
+        width: 200px;
+        display: inline-block;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 32%;
+        height: 112px;
+    }
+
+    .top-song-info{
+        display: inline-block;
+        vertical-align: top;
+        padding-left: 15px;
+        position: relative;
+        height: 109%;
+        width: 68%;
+    }
+
+    .top-song-info{
+        display: inline-block;
+        vertical-align: top;
+        padding-left: 15px;
+        position: relative;
+        height: 109%;
+        width: 68%;
+    }
+
+    .top-song-info ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 68%;
+    }
+
+    .Play-all-btn{
+        position: absolute;
+        bottom: 12px;
+        width:140px;
+        border-radius: 100px;
+    }
+}

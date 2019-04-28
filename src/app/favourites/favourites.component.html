@@ -1,15 +1,4 @@
-<div class="main-music-info">
-    <div class = "top-coverart" #albumArt></div>
-    <div class = "top-song-info">
-        <ul>
-            <h3>{{musicInfo.artistName}} Songs</h3>
-            <li><b>Album</b>: {{musicInfo.album}}</li>
-            <li><b>Genre</b>: {{musicInfo.genre}}</li>
-            <li><b>Now Playing</b>: {{musicInfo.nowPlaying}}</li>
-        </ul>
-        <button class="btn btn-outline-dark Play-all-btn" (click) = "playNext()" [disabled] = "!pageStatus">Play Next</button>
-    </div>
-</div>
+<music_info_section></music_info_section>
 <div *ngIf = "searchList; else loader">
     <music_listing [music_list] = "searchList" [meta] = "meta" [selectedItem] = "selectedItem" (notify) = "musicListActions($event)"></music_listing>
 </div>

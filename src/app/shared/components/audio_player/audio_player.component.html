@@ -1,4 +1,4 @@
-<audio controls #myAudio>
+<audio controls #myAudio (ended) = "checkPlayStatus()" muted="muted">
     <source src="" type="audio/*">
     Your browser does not support the audio element.
 </audio>
