@@ -20,7 +20,6 @@ export class FavouritesComponent{
     public genre: string;
     public trackId = 0;
     public albumPic: string;
-    public selectedItem: any;
     public pageStatus:boolean = true;
     public meta = {
         'showLike' : false,

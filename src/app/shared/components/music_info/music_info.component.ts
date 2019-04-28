@@ -1,5 +1,5 @@
 import {Component,Input, OnInit} from '@angular/core';
-import {MusicListService} from '../../services/music_list.service';
+import {AudioPlayerService} from '../../services/audio_player.service';
 
 @Component({
     'selector': 'music_info_section',
@@ -12,13 +12,25 @@ export class MusicInfoComponent implements OnInit{
 
     @Input() musicInfo:any = [];
 
-    constructor(private musicListService:MusicListService){}
+    public showPlayBtn: boolean = true;
+
+    constructor(private audioPlayerService:AudioPlayerService){}
 
     ngOnInit(){
-        this.musicListService.getSelectedTrack().subscribe((res)=>{
+        this.audioPlayerService.getSelectedTrack().subscribe((res)=>{
             if(res.is_defined){
                 this.musicInfo = res.data;
             }
         });
+    }
+
+    playAll(){
+        this.audioPlayerService.playAllTrack();
+        this.showPlayBtn = false;
+    }
+
+    pause(){
+        this.audioPlayerService.pauseTrack();
+        this.showPlayBtn = true;
     }
 }

@@ -2,13 +2,13 @@ import {Component,OnInit,ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AudioPlayerComponent} from '../shared/components/audio_player/audio_player.component';
 import {SearchService} from '../shared/services/music.service';
-import {MusicListService} from '../shared/services/music_list.service';
+import {AudioPlayerService} from '../shared/services/audio_player.service';
 
 @Component({
     selector:'my_music',
     templateUrl:'music.component.html',
     styleUrls:['music.component.css'],
-    providers:[SearchService,MusicListService]
+    providers:[SearchService,AudioPlayerService]
 
 })
 export class MusicComponent implements OnInit{
@@ -28,7 +28,7 @@ export class MusicComponent implements OnInit{
    };
    
    constructor(private search:SearchService,
-               private musicListService: MusicListService,
+               private audioPlayerService: AudioPlayerService,
                private route: ActivatedRoute){
    }
 
@@ -46,16 +46,9 @@ export class MusicComponent implements OnInit{
                });
                
                this.music_info = this.searchList.results[0];
-               //this.musicListService.selectTrack(this.music_info);
-               //this.musicListActions(this.searchList.results[0]);
             }else{
                this.pageStatus = false;
             }
          });
    }
-
-   // playNext(){
-   //    this.trackId = (this.trackId < this.searchList.resultCount-1)? this.trackId+1 : 0;
-   //    this.musicListActions(this.searchList.results[this.trackId]);
-   // }
 }

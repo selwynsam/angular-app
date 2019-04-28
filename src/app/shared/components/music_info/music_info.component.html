@@ -7,6 +7,7 @@
             <li><b>Genre</b>: {{musicInfo.primaryGenreName}}</li>
             <li><b>Now Playing</b>: {{musicInfo.trackName}}</li>
         </ul>
-        <button class="btn btn-outline-dark Play-all-btn" (click) = "playNext()" [disabled] = "!pageStatus">Play Next</button>
+        <button class="btn btn-outline-dark Play-all-btn" (click) = "playAll()" [hidden] = "!showPlayBtn">Play</button>
+        <button class="btn btn-outline-dark Play-all-btn" (click) = "pause()" [hidden] = "showPlayBtn">Pause</button>
     </div>
 </div>

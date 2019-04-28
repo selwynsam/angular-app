@@ -1,6 +1,6 @@
 <music_info_section [musicInfo] = "music_info"></music_info_section>
 <div *ngIf = "searchList; else loader">
-    <music_listing [music_list] = "searchList" [meta] = "meta"  [selectedItem] = "selectedItem"></music_listing>
+    <music_listing [music_list] = "searchList" [meta] = "meta"></music_listing>
 </div>
 
 <ng-template #loader>

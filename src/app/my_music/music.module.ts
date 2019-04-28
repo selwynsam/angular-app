@@ -6,7 +6,7 @@ import {DurationPipe} from './duration.pipe';
 import {MusicListingComponent} from '../shared/components/music_listing/music_list.component';
 import {AudioPlayerComponent} from '../shared/components/audio_player/audio_player.component';
 import {MusicInfoComponent} from '../shared/components/music_info/music_info.component';
-import {MusicListService} from '../shared/services/music_list.service';
+import {AudioPlayerService} from '../shared/services/audio_player.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,6 @@ import {MusicListService} from '../shared/services/music_list.service';
             CommonModule,
             HttpClientModule
           ],
-  providers: [MusicListService]
+  providers: [AudioPlayerService]
 })
 export class MusicModule { }

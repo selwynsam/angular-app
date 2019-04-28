@@ -1,5 +1,5 @@
 import {Component, ViewChild, Input, OnInit} from '@angular/core';
-import {MusicListService} from '../../services/music_list.service';
+import {AudioPlayerService} from '../../services/audio_player.service';
 
 @Component({
     'selector':'audio_player',
@@ -12,22 +12,25 @@ export class AudioPlayerComponent implements OnInit{
     @ViewChild('myAudio') input;
     @Input() music_list: any = [];
 
-    public trackId = 0;
+    public trackId = -1;
     public selectedSong:any;
+    public playType:string;
 
-    constructor(private musicListService: MusicListService){}
+    constructor(private audioPlayerService: AudioPlayerService){}
 
     ngOnInit(){
-        this.musicListService.getSelectedTrack().subscribe(
+        this.audioPlayerService.getSelectedTrack().subscribe(
             (res) =>{
                 if(res.is_defined){
                     this.play(res.data.previewUrl);
                 }
         });
-    }
 
-    checkStatus(){
+        this.audioPlayerService.playAllTrack$.subscribe(()=>{
+            this.playAll();
+        });
         
+        this.audioPlayerService.pauseTrack$.subscribe(()=>this.pause());
     }
     
     play(trackUrl){
@@ -41,11 +44,11 @@ export class AudioPlayerComponent implements OnInit{
             this.trackId = (this.trackId < this.music_list.resultCount-1)? this.trackId+1 : 0;
             this.selectedSong = this.music_list.results[this.trackId];
             this.play(this.selectedSong.previewUrl);
-            this.musicListService.selectTrack(this.selectedSong);
+            this.audioPlayerService.selectTrack(this.selectedSong);
         },2000);
     }
 
     pause(){
-
+        this.input.nativeElement.pause();
     }
 }
