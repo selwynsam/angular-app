@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class SearchService{
     public base_url:string = "https://selwynsam.github.io/angular-app/"; 
-    public apiRoot:string = 'http://itunes.apple.com/search';
+    public apiRoot:string = 'https://itunes.apple.com/search';
     public default_storage_val = {
         'results': [],
         'resultCount': 0
