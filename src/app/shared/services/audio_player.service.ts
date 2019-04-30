@@ -5,11 +5,13 @@ import { Observable,BehaviorSubject, Subject } from 'rxjs';
 export class AudioPlayerService{
     
     private subject = new BehaviorSubject<any>({'is_defined':false});
+    private playerStatus = new BehaviorSubject<any>({'playStatus': 'paused'});
 
+    private playTrackSource = new Subject();
     private playAllTrackSource = new Subject();
     private pauseTrackSource = new Subject();
 
-
+    playTrack$     = this.playTrackSource.asObservable();
     playAllTrack$  = this.playAllTrackSource.asObservable();
     pauseTrack$    = this.pauseTrackSource.asObservable();
     
@@ -23,11 +25,23 @@ export class AudioPlayerService{
         return this.subject.asObservable();
     }
 
+    playTrack(){
+        this.playTrackSource.next();
+    }
+
     playAllTrack(){
         this.playAllTrackSource.next();
     }
 
     pauseTrack(){
         this.pauseTrackSource.next();
+    }
+
+    getPlayerStatus(){
+        return this.playerStatus.asObservable();
+    }
+
+    setPlayerStatus(status){
+        this.playerStatus.next({'playStatus': status});
     }
 }

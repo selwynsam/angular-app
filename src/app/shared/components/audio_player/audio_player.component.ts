@@ -1,5 +1,6 @@
-import {Component, ViewChild, Input, OnInit} from '@angular/core';
+import {Component, ViewChild, Input, OnInit, OnDestroy } from '@angular/core';
 import {AudioPlayerService} from '../../services/audio_player.service';
+import {Subscription} from 'rxjs';
 
 @Component({
     'selector':'audio_player',
@@ -8,9 +9,15 @@ import {AudioPlayerService} from '../../services/audio_player.service';
     'providers': []
 })
 
-export class AudioPlayerComponent implements OnInit{
+export class AudioPlayerComponent implements OnInit, OnDestroy{
     @ViewChild('myAudio') input;
     @Input() music_list: any = [];
+
+    private getSelectedTrackSub: Subscription;
+    private playTrackSub: Subscription;
+    private playAllTrackSub: Subscription;
+    private pauseTracSub: Subscription;
+
 
     public trackId = -1;
     public selectedSong:any;
@@ -19,36 +26,61 @@ export class AudioPlayerComponent implements OnInit{
     constructor(private audioPlayerService: AudioPlayerService){}
 
     ngOnInit(){
-        this.audioPlayerService.getSelectedTrack().subscribe(
+        this.getSelectedTrackSub = this.audioPlayerService.getSelectedTrack().subscribe(
             (res) =>{
                 if(res.is_defined){
-                    this.play(res.data.previewUrl);
+                    this.playTrackSource(res.data.previewUrl);
                 }
         });
 
-        this.audioPlayerService.playAllTrack$.subscribe(()=>{
-            this.playAll();
-        });
+        this.playTrackSub    = this.audioPlayerService.playTrack$.subscribe(() => this.play());
+
+        this.playAllTrackSub = this.audioPlayerService.playAllTrack$.subscribe(() => this.playAll());
         
-        this.audioPlayerService.pauseTrack$.subscribe(()=>this.pause());
+        this.pauseTracSub    = this.audioPlayerService.pauseTrack$.subscribe(() => this.pause());
+
+        this.input.nativeElement.onplay = () => this.play();
+
+        this.input.nativeElement.onpause = () => this.pause();
+
     }
     
-    play(trackUrl){
+    playTrackSource(trackUrl){
         this.input.nativeElement.src = trackUrl;
-        this.input.nativeElement.play();
+        this.play();
     }
 
     playAll(){
         setTimeout(()=>{
-            this.input.nativeElement.load();
             this.trackId = (this.trackId < this.music_list.resultCount-1)? this.trackId+1 : 0;
             this.selectedSong = this.music_list.results[this.trackId];
-            this.play(this.selectedSong.previewUrl);
+            this.playTrackSource(this.selectedSong.previewUrl);
             this.audioPlayerService.selectTrack(this.selectedSong);
         },2000);
     }
 
+    play(){
+        
+        if(!this.input.nativeElement.src){
+           this.playAll();
+           return;
+        }
+        
+        this.input.nativeElement.play();
+        this.audioPlayerService.setPlayerStatus('playing');
+    }
+
     pause(){
         this.input.nativeElement.pause();
+        this.audioPlayerService.setPlayerStatus('paused');
+    }
+
+    ngOnDestroy(){
+        
+        this.input.nativeElement.pause();
+        this.getSelectedTrackSub.unsubscribe();
+        this.playTrackSub.unsubscribe();
+        this.playAllTrackSub.unsubscribe();
+        this.pauseTracSub.unsubscribe();
     }
 }

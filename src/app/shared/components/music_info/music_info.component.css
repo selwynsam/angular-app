@@ -55,6 +55,12 @@
     border-radius: 100px;
 }
 
+.music-icons{
+    font-size: 23px;
+    position: absolute;
+    left: 22px;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
     .main-music-info{
         height: 106px;

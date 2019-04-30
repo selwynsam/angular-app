@@ -5,10 +5,16 @@
         <button class="col-sm-2 btn btn-primary" [disabled] = "!searchValue" (click) = "searchMusic()" >Search</button>
     </div>
 </div>
-<div class="recomdn-main">
+<div class="recomdn-main" *ngIf = "latestMusicList; else loader">
     <div class="recomdn-card" *ngFor="let song of latestMusicList" >
         <img class="card-albumart" src="{{song.artworkUrl200}}"/>
         <div class="card-info">{{song.artistName}}</div>
         <a class="card-link" routerLink="/artist/{{song.artistName}}"></a>
     </div>
 </div>
+
+<ng-template #loader>
+    <div class="recomdn-main" style="text-align:center">
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>
+    </div>
+</ng-template>

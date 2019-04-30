@@ -1,8 +1,9 @@
-import {Component,OnInit,ViewChild} from '@angular/core';
+import {Component,OnInit,ViewChild, OnDestroy} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AudioPlayerComponent} from '../shared/components/audio_player/audio_player.component';
 import {SearchService} from '../shared/services/music.service';
 import {AudioPlayerService} from '../shared/services/audio_player.service';
+import {Subscription} from 'rxjs';
 
 @Component({
     selector:'my_music',
@@ -11,8 +12,10 @@ import {AudioPlayerService} from '../shared/services/audio_player.service';
     providers:[SearchService,AudioPlayerService]
 
 })
-export class MusicComponent implements OnInit{
+export class MusicComponent implements OnInit, OnDestroy{
    @ViewChild(AudioPlayerComponent) player: AudioPlayerComponent;
+
+   private searchSubscription: Subscription;
    
    public searchList: any;
    public pageStatus:boolean = true;
@@ -33,9 +36,10 @@ export class MusicComponent implements OnInit{
    }
 
    ngOnInit(){
-      //localStorage.setItem("music_data", JSON.stringify(this.music_data));
+      
       const searchTerm = this.route.snapshot.paramMap.get('id');
-      this.search.search(searchTerm).subscribe(res =>{ 
+
+      this.searchSubscription = this.search.search(searchTerm).subscribe(res =>{ 
             console.log(res);
             if(res['resultCount'] > 0){
 
@@ -50,5 +54,9 @@ export class MusicComponent implements OnInit{
                this.pageStatus = false;
             }
          });
+   }
+
+   ngOnDestroy(){
+      this.searchSubscription.unsubscribe();
    }
 }

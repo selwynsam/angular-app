@@ -7,7 +7,7 @@
             <li><b>Genre</b>: {{musicInfo.primaryGenreName}}</li>
             <li><b>Now Playing</b>: {{musicInfo.trackName}}</li>
         </ul>
-        <button class="btn btn-outline-dark Play-all-btn" (click) = "playAll()" [hidden] = "!showPlayBtn">Play</button>
-        <button class="btn btn-outline-dark Play-all-btn" (click) = "pause()" [hidden] = "showPlayBtn">Pause</button>
+        <button class="btn btn-outline-dark Play-all-btn" #play_btn (click) = "playAll()" [hidden] = "!showPlayBtn"><i class="fa fa-play-circle-o music-icons" aria-hidden="true"> </i><span>Play</span></button>
+        <button class="btn btn-outline-dark Play-all-btn" (click) = "pause()" [hidden] = "showPlayBtn"><i class="fa fa-pause-circle-o music-icons" aria-hidden="true"></i><span>Pause</span></button>
     </div>
 </div>
