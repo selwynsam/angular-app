@@ -55,6 +55,14 @@
     border-radius: 100px;
 }
 
+.favourites-btn{
+    position: absolute;
+    bottom: 12px;
+    width: 140px;
+    border-radius: 100px;
+    left: 165px;
+}
+
 .music-icons{
     font-size: 23px;
     position: absolute;

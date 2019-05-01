@@ -13,6 +13,8 @@ export class MusicInfoComponent implements OnInit, OnDestroy{
 
     @ViewChild('play_btn') play_btn; 
     @Input() musicInfo:any = [];
+    @Input() showFavBtn: boolean;
+
 
     private getSelectedTrackSub: Subscription;
     private getPlayerStatusSub: Subscription;

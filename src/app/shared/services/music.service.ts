@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable} from "@angular/core";
 import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -11,9 +11,10 @@ export class SearchService{
         'results': [],
         'resultCount': 0
     }
+    private music_data = JSON.parse(localStorage.getItem('music_data'));
 
     constructor(private http: HttpClient){}
-    
+
     search(term:string){
         let url = `${this.apiRoot}`;
         let headers = new HttpHeaders();
@@ -29,31 +30,31 @@ export class SearchService{
     }
 
     getFavouriteMusic(){
-        let music_data = JSON.parse(localStorage.getItem('music_data'));
-        return of(music_data);
+        return of(this.music_data);
     }
 
     musicListActions(data,action){
 
-        let music_data = JSON.parse(localStorage.getItem('music_data'));
-
-        music_data = (music_data != null) ? music_data : this.default_storage_val;
+        this.music_data = (this.music_data != null) ? this.music_data : this.default_storage_val;
               
         switch(action){
             case 'like': {
-                music_data['results'].push(data);
+
+                this.music_data['results'] = this.music_data['results'].filter(function(el) { return el.trackId != data.trackId; });
+                this.music_data['results'].push(data);
                 break;
             }
 
             case 'unlike':
             case 'remove': {
-                music_data['results'] = music_data['results'].filter(function(el) { return el.trackId != data.trackId; });
+                this.music_data['results'] = this.music_data['results'].filter(function(el) { return el.trackId != data.trackId; });
                 break;
             }
         }
 
-        music_data['resultCount'] = music_data['results'].length;
-        localStorage.setItem("music_data", JSON.stringify(music_data));
-        return of(music_data);
+        this.music_data['resultCount'] = this.music_data['results'].length;
+        localStorage.setItem("music_data", JSON.stringify(this.music_data));
+  
+        return of(this.music_data);
     }
 }

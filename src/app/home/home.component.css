@@ -48,6 +48,33 @@
     z-index: 1000;
 }
 
+.favourites-link{
+    display: block;
+    margin-top: 11px;
+    text-align: -webkit-right;
+    padding-right: 13px;
+}
+
+.favourites-link a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.favourites-link i{
+    display: none;
+}
+
+.favourites-link a:hover i{
+    display: inline;
+    color: #fff;
+}
+
+
+.explore-music-label{
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
 @media only screen and (min-width: 992px) {
     .recomdn-main{
         width: 76%;

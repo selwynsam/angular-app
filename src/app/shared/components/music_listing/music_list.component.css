@@ -11,6 +11,7 @@ tbody tr:hover{
 .active{
     background-color: #fff;
     font-weight: 500;
+    color: black;
 }
 
 .listing-coverart{

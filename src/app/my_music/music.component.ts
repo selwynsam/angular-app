@@ -20,15 +20,12 @@ export class MusicComponent implements OnInit, OnDestroy{
    public searchList: any;
    public pageStatus:boolean = true;
    public music_info:any = [];
+   public showFavBtn: boolean = true;
+
    public meta = {
       'showLike' : true,
       'showDelete':false
    }
-
-   private music_data = {
-      'results' : [],
-      'resultCount' : 0
-   };
    
    constructor(private search:SearchService,
                private audioPlayerService: AudioPlayerService,

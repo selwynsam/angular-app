@@ -4,8 +4,13 @@
         <input type="text" class="form-control col-sm-10" [(ngModel)] = "searchValue" placeholder="Search your favourite artist, album or music" (keyup.enter) = "searchMusic()"  />
         <button class="col-sm-2 btn btn-primary" [disabled] = "!searchValue" (click) = "searchMusic()" >Search</button>
     </div>
+    <div class="favourites-link">
+        <a href="./my_music/favourites">My Favourites <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+    </div>
 </div>
+
 <div class="recomdn-main" *ngIf = "latestMusicList; else loader">
+    <h3 class="explore-music-label">Explore Music</h3>
     <div class="recomdn-card" *ngFor="let song of latestMusicList" >
         <img class="card-albumart" src="{{song.artworkUrl200}}"/>
         <div class="card-info">{{song.artistName}}</div>
