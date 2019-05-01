@@ -35,7 +35,7 @@ export class FavouritesComponent{
     ngOnInit(){
       
         this.searchSubscription = this.search.getFavouriteMusic().subscribe(res =>{ 
-            console.log(res);
+        
             if(res['resultCount'] > 0){
 
                 this.searchList = res ;

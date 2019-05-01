@@ -13,15 +13,10 @@ export class HomeComponent implements OnInit {
     public latestMusicList:any;
     public searchValue:string;
    
-    constructor(private latestMusic:SearchService){
-        console.log('home constructor');
-    }
+    constructor(private latestMusic:SearchService){}
 
     ngOnInit(){
-        this.latestMusic.getLatestMusic().subscribe(res =>{
-            console.log(res);
-            this.latestMusicList = res;
-        });
+        this.latestMusic.getLatestMusic().subscribe(res =>this.latestMusicList = res);
     }
 
     searchMusic(){

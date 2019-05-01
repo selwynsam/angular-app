@@ -37,7 +37,7 @@ export class MusicComponent implements OnInit, OnDestroy{
       const searchTerm = this.route.snapshot.paramMap.get('id');
 
       this.searchSubscription = this.search.search(searchTerm).subscribe(res =>{ 
-            console.log(res);
+            
             if(res['resultCount'] > 0){
 
                this.searchList = res ;
